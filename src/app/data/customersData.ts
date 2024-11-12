@@ -4,7 +4,7 @@ import img3 from './../assets/images/Ellipse.png';
 import { StaticImageData } from 'next/image';
 
 export interface TeamMember {
-    img: string;
+    img: StaticImageData;
     full_name: string;
     disc: string;
 }

@@ -14,7 +14,7 @@ interface LogProps {
     signUpText: string;
     showCheck?: boolean;
     closeParentModal?: () => void; // لإغلاق الـ Modal الأب عند فتح الـ Modal الثاني
-    openPopup: (type: "login" | "signUp") => void;
+    openPopup?: (type: "login" | "signUp") => void;
 }
 
 const Log: FC<LogProps> = ({
@@ -31,7 +31,7 @@ const Log: FC<LogProps> = ({
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleSignUpClick = () => {
-        openPopup(signUpText === "Sign Up" ? "signUp" : "login");
+        (openPopup ?? (() => {}))(signUpText === "Sign Up" ? "signUp" : "login");
         // إغلاق الـ Modal الأولى عند فتح الثانية
         if (closeParentModal) {
             closeParentModal();  // إغلاق الـ Modal الأب

@@ -8,8 +8,8 @@ import phone from './../assets/images/phone.svg'
 import mail from './../assets/images/mail.svg'
 export interface FooterSection {
     title: string;
-    items: string|StaticImageData;
-    disc: string; 
+    items: string[]|StaticImageData[];
+    disc?: string[];  
 }
 
 export const footerData: FooterSection[] = [

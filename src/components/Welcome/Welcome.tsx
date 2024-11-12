@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Counter from "../Counter/Counter";
 
 interface Stat {
@@ -7,7 +7,7 @@ interface Stat {
 }
 
 interface WelcomeProps {
-    imgSrc: string;
+    imgSrc: StaticImageData;
     title: string;
     disc: string;
     stats: Stat[];

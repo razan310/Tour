@@ -18,10 +18,18 @@ const Footer = ({ footerData }: FooterProps) => {
                     <h1 className="font-bold text-xl text-white mb-3">{section.title}</h1>
                     {Array.isArray(section.items) ? (
                         section.items.map((item, itemIndex) => (
-                            <p key={itemIndex} className=" font-semibold text-sm 2xl:text-lg text-gray-100 my-2">{item}</p>
+                            typeof item === 'string' ? (
+                                <p key={itemIndex} className="font-semibold text-sm 2xl:text-lg text-gray-100 my-2">{item}</p>
+                            ) : (
+                                <Image key={itemIndex} src={item} alt={`item-${itemIndex}`} width={20} height={20} />
+                            )
                         ))
                     ) : (
-                        <p className="font-semibold text-lg text-gray-100 my-2">{section.items}</p>
+                        typeof section.items === 'string' ? (
+                            <p className="font-semibold text-lg text-gray-100 my-2">{section.items}</p>
+                        ) : (
+                            <Image src={section.items} alt="single-item" width={20} height={20} />
+                        )
                     )}
                 </div>
             ))}
@@ -31,9 +39,9 @@ const Footer = ({ footerData }: FooterProps) => {
                 <div key={index}>
                     <h1 className="font-bold text-xl text-white mb-3">{section.title}</h1>
                     {section.items.map((item, itemIndex) => (
-                        <div key={itemIndex} className="flex items-center gap-2 text-gray-400 ">
+                        <div key={itemIndex} className="flex items-center gap-2 text-gray-400">
                             <Image src={item} alt="icon" width={20} height={20} />
-                            <p className="font-semibold text-sm 2xl:text-lg text-gray-100 my-2">{section.disc[itemIndex]}</p>
+                            <p className="font-semibold text-sm 2xl:text-lg text-gray-100 my-2">{section.disc && section.disc[itemIndex]}</p>
                         </div>
                     ))}
                 </div>

@@ -3,7 +3,7 @@ import Image, { StaticImageData } from 'next/image';
 import { BiSolidQuoteAltRight } from 'react-icons/bi';
 
 interface CardProps {
-    img: string ;
+    img: StaticImageData ;
     name: string;
     disc: string;
 }

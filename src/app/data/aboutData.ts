@@ -1,8 +1,9 @@
+import { StaticImageData } from 'next/image';
 import img1 from './../assets/images/Rectangle.png'
 import img2 from './../assets/images/about_picture.png'
 
 export interface DataItem {
-    img: string;
+    img: StaticImageData;
     title: string;
     disc: string;
     stats: {
